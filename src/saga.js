@@ -242,7 +242,8 @@ export function* theControlTower({ history, matcher, offset }: ControllTowerOpti
   }
 
   // Initial location
-  yield put(push(removeOffset(history.location.pathname, offset)));
+  const nextPath = `${history.location.pathname}${history.location.search}`;
+  yield put(push(removeOffset(nextPath, offset)));
 
   let hooks = [], nextLocation:?Location;
   while (true) {
